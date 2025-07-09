@@ -1,0 +1,37 @@
+{% style %}
+  
+{% endstyle %}
+
+{% javascript %}
+  
+{% endjavascript %}
+
+<div class="firstSection">
+  <p>{{ section.settings.textId }}</p>
+  <p>{{ section.settings.checkbox }}</p>
+</div>
+
+{% schema %}
+  {
+    "name": "FirstSection",
+    "settings": [
+        {
+          "type": "text",
+          "id": "textId",
+          "default": "t:sections.image-banner.blocks.text.settings.text.default",
+          "label": "t:sections.image-banner.blocks.text.settings.text.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "checkbox",
+          "default": true,
+          "label": "t:sections.image-banner.blocks.text.settings.text.label"
+        },
+    ],
+    "presets": [ 
+      {
+        "name": "FirstSection",
+      }
+    ]
+  }
+{% endschema %}

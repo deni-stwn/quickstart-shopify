@@ -1,0 +1,48 @@
+{% schema %}
+{
+  "name": "Testimonial Section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimoni",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "photo",
+          "label": "Foto Pelanggan"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Nama Pelanggan"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Isi Testimoni"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Testimonial Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="testimonial-wrapper">
+  {% for block in section.blocks %}
+    <div class="testimonial">
+      {% if block.settings.photo != blank %}
+        <img height="" width="" src="{{ block.settings.photo | image_url: width: 100 }}" alt="{{ block.settings.name }}">
+      {% endif %}
+      <h4>{{ block.settings.name }}</h4>
+      <p>{{ block.settings.quote }}</p>
+    </div>
+  {% endfor %}
+</div>
